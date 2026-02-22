@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="THE PIZZA CUTTER - Fresh, Hot, Delicious Pizza, Burgers, Pasta, Snacks & Beverages. Order Now!">
+    <meta name="keywords" content="pizza, burgers, pasta, snacks, beverages, food delivery, THE PIZZA CUTTER">
+    <title>THE PIZZA CUTTER - Fresh • Hot • Delicious Pizza</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ============================================
+           CSS Variables & Reset
+           ============================================ */
+        :root {
+            --primary-color: #dc143c;
+            --secondary-color: #000000;
+            --accent-color: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --bg-light: #f8f8f8;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(220, 20, 60, 0.2);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ============================================
+           Navigation Bar
+           ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--accent-color);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-order-nav {
+            background: var(--primary-color);
+            color: var(--accent-color);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-order-nav:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* ============================================
+           Hero Section
+           ============================================ */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                        url('https://www.genspark.ai/api/files/s/2hJEIpFX') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.3), rgba(0, 0, 0, 0.5));
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--accent-color);
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-tagline {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--accent-color);
+            border-radius: 25px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            animation: scroll 2s infinite;
+        }
+
+        @keyframes scroll {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(-50%) translateY(20px);
+                opacity: 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .animate-fade-in-delay {
+            animation: fadeIn 1s ease-out 0.3s backwards;
+        }
+
+        .animate-fade-in-delay-2 {
+            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        /* ============================================
+           Section Styles
+           ============================================ */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .title-underline {
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        /* ============================================
+           About Section
+           ============================================ */
+        .about {
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            object-fit: cover;
+            height: 500px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 25px;
+            background: var(--accent-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-item h4 {
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* ============================================
+           Menu Section
+           ============================================ */
+        .menu {
+            background: var(--accent-color);
+        }
+
+        .menu-search {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .menu-search input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .menu-search input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .menu-search i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .category-btn {
+            padding: 12px 30px;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: var(--primary-color);
+            color: var(--accent-color);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background: var(--accent-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .menu-item-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .menu-item-content {
+            padding: 20px;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            flex: 1;
+        }
+
+        .menu-item-badge {
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .badge-veg {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #28a745;
+        }
+
+        .badge-non-veg {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #dc3545;
+        }
+
+        .badge-bestseller {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffc107;
+        }
+
+        .menu-item-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .menu-item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-item-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .btn-add {
+            background: var(--primary-color);
+            color: var(--accent-color);
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-add:hover {
+            background: var(--secondary-color);
+        }
+
+        /* ============================================
+           Offers Section
+           ============================================ */
+        .offers {
+            background: var(--bg-light);
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .offer-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .offer-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        /* ============================================
+           Gallery Section
+           ============================================ */
+        .gallery {
+            background: var(--accent-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            height: 300px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(220, 20, 60, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay i {
+            font-size: 3rem;
+            color: var(--accent-color);
+        }
+
+        /* ============================================
+           Reviews Section
+           ============================================ */
+        .reviews {
+            background: var(--bg-light);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: var(--accent-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .review-stars {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+
+        .author-info span {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* ============================================
+           Location Section
+           ============================================ */
+        .location {
+            background: var(--accent-color);
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .map-container {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .location-info {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .location-info h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .location-info p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        /* ============================================
+           Contact Section
+           ============================================ */
+        .contact {
+            background: var(--bg-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-card {
+            background: var(--accent-color);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .contact-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .contact-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .text-small {
+            font-size: 0.9rem !important;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--accent-color);
+        }
+
+        /* ============================================
+           Footer
+           ============================================ */
+        .footer {
+            background: var(--secondary-color);
+            color: var(--accent-color);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p {
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+            color: #cccccc;
+        }
+
+        .footer-section ul li a {
+            color: #cccccc;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-section ul li i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333333;
+        }
+
+        .footer-bottom p {
+            color: #cccccc;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom i {
+            color: var(--primary-color);
+        }
+
+        /* ============================================
+           Floating WhatsApp Button
+           ============================================ */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: var(--accent-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(37, 211, 102, 0.7);
+            }
+        }
+
+        /* ============================================
+           Lightbox
+           ============================================ */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 3rem;
+            color: var(--accent-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-color);
+        }
+
+        .lightbox-nav button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--accent-color);
+            border: none;
+            font-size: 2rem;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lightbox-nav button:hover {
+            background: var(--primary-color);
+        }
+
+        .lightbox-prev {
+            left: 30px;
+        }
+
+        .lightbox-next {
+            right: 30px;
+        }
+
+        /* ============================================
+           Responsive Design
+           ============================================ */
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--accent-color);
+                flex-direction: column;
+                padding: 50px 0;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.2rem;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .offers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-logo img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lightbox-nav button {
+                padding: 10px 15px;
+                font-size: 1.5rem;
+            }
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://www.genspark.ai/api/files/s/aIxNtC9S" alt="THE PIZZA CUTTER Logo">
+                <span class="logo-text">THE PIZZA CUTTER</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#menu" class="nav-link">Menu</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#reviews" class="nav-link">Reviews</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="https://wa.me/918700205502?text=Hello,%20I%20want%20to%20order%20from%20THE%20PIZZA%20CUTTER." class="btn-order-nav">Order Now</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title animate-fade-in">THE PIZZA CUTTER</h1>
+            <p class="hero-tagline animate-fade-in-delay">Fresh • Hot • Delicious Pizza</p>
+            <div class="hero-buttons animate-fade-in-delay-2">
+                <a href="#menu" class="btn btn-primary">View Menu</a>
+                <a href="https://wa.me/918700205502?text=Hello,%20I%20want%20to%20order%20from%20THE%20PIZZA%20CUTTER." class="btn btn-secondary">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://www.genspark.ai/api/files/s/2hJEIpFX" alt="Pizza">
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">About Us</h2>
+                    <div class="title-underline"></div>
+                    <p>THE PIZZA CUTTER is a fast-growing local pizza spot serving freshly baked pizzas, burgers, pasta, snacks and beverages.</p>
+                    <p>We focus on quality ingredients, affordable prices and quick service. Our commitment to excellence ensures every bite is packed with flavor and freshness.</p>
+                    <p>Perfect place for students, families and pizza lovers who crave delicious food without breaking the bank.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-pizza-slice"></i>
+                            <h4>Fresh Ingredients</h4>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <h4>Affordable Prices</h4>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shipping-fast"></i>
+                            <h4>Quick Service</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2 class="section-title">Our Menu</h2>
+            <div class="title-underline"></div>
+            <p class="section-subtitle">Discover our delicious variety of pizzas, burgers, pasta & more</p>
+            
+            <div class="menu-search">
+                <input type="text" id="menuSearch" placeholder="Search for your favorite dish...">
+                <i class="fas fa-search"></i>
+            </div>
+
+            <div class="menu-categories" id="menuCategories">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="pizza">Pizza</button>
+                <button class="category-btn" data-category="combos">Combos</button>
+                <button class="category-btn" data-category="burgers">Burgers</button>
+                <button class="category-btn" data-category="pasta">Pasta</button>
+                <button class="category-btn" data-category="snacks">Snacks</button>
+                <button class="category-btn" data-category="beverages">Beverages</button>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                </div>
+        </div>
+    </section>
+
+    <section class="offers">
+        <div class="container">
+            <h2 class="section-title">Special Offers</h2>
+            <div class="title-underline"></div>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <img src="https://www.genspark.ai/api/files/s/Kb7E4FE8" alt="Special Offer">
+                </div>
+                <div class="offer-card">
+                    <img src="https://www.genspark.ai/api/files/s/6CbcRgCX" alt="Special Offer">
+                </div>
+                <div class="offer-card">
+                    <img src="https://www.genspark.ai/api/files/s/LHVwWQc0" alt="Special Offer">
+                </div>
+                <div class="offer-card">
+                    <img src="https://www.genspark.ai/api/files/s/uTi7BDR0" alt="Special Offer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Food Gallery</h2>
+            <div class="title-underline"></div>
+            <p class="section-subtitle">A visual feast of our delicious creations</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://www.genspark.ai/api/files/s/2hJEIpFX" alt="Pizza">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.genspark.ai/api/files/s/RNhNNg40" alt="Pizza">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.genspark.ai/api/files/s/s31jS8WE" alt="Burger">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.genspark.ai/api/files/s/Vza1GYZj" alt="Pasta">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.genspark.ai/api/files/s/V5MzkRSp" alt="Food">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.genspark.ai/api/files/s/jxHqBVkO" alt="Food">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.genspark.ai/api/files/s/yNw8k5iN" alt="Food">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">Customer Reviews</h2>
+            <div class="title-underline"></div>
+            <p class="section-subtitle">What our customers say about us</p>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Best pizza in the area! The crust is perfect and the toppings are always fresh. Highly recommended!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-info">
+                            <h4>Rahul Sharma</h4>
+                            <span>Regular Customer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Amazing taste and great prices. The paneer tikka pizza is my favorite! Quick delivery too."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">P</div>
+                        <div class="author-info">
+                            <h4>Priya Mehta</h4>
+                            <span>Food Lover</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <p class="review-text">"Perfect place for quick bites. Love their combo offers and the variety in the menu is impressive!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Amit Kumar</h4>
+                            <span>Student</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="location">
+        <div class="container">
+            <h2 class="section-title">Visit Us</h2>
+            <div class="title-underline"></div>
+            <div class="location-content">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.562365063467!2d77.22731831508221!3d28.61393908242493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204d!2sIndia%20Gate!5e0!3m2!1sen!2sin!4v1682490586940!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="location-info">
+                    <h3>Find Us Here</h3>
+                    <p>Visit our restaurant for a delightful dining experience</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-map-marker-alt"></i> Get Directions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="title-underline"></div>
+            <p class="section-subtitle">Get in touch with us for orders and inquiries</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Phone</h3>
+                    <p>87002 05502</p>
+                    <a href="tel:8700205502" class="btn btn-outline">Call Now</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp Orders</h3>
+                    <p>+91 87002 05502</p>
+                    <a href="https://wa.me/918700205502" class="btn btn-outline">Order on WhatsApp</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Opening Hours</h3>
+                    <p>10:00 AM – 8:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>THE PIZZA CUTTER</h3>
+                    <p>Fresh • Hot • Delicious Pizza</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 THE PIZZA CUTTER. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/918700205502" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">×</span>
+        <img src="" alt="Gallery Image" id="lightboxImg">
+        <div class="lightbox-nav">
+            <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // Menu Data
+        // ============================================
+        const menuData = [
+            { name: "Tomato Pizza", description: "Regular, 7 Inches", price: "₹80.00", category: "pizza", type: "veg", image: "https://www.genspark.ai/api/files/s/2hJEIpFX", bestseller: false },
+            { name: "Onion Pizza", description: "Regular, 7 Inches", price: "₹100.00", category: "pizza", type: "veg", image: "https://www.genspark.ai/api/files/s/2hJEIpFX", bestseller: true },
+            { name: "Corn Pizza", description: "Regular, 7 Inches", price: "₹115.00", category: "pizza", type: "veg", image: "https://www.genspark.ai/api/files/s/2hJEIpFX", bestseller: true },
+            { name: "Paneer & Capsicum Pizza", description: "Regular, 7 Inches", price: "₹140.00", category: "pizza", type: "veg", image: "https://www.genspark.ai/api/files/s/RNhNNg40", bestseller: true },
+            { name: "Veg Deluxe Pizza", description: "Onion, capsicum, mushroom, corn and paneer", price: "₹290.00", category: "pizza", type: "veg", image: "https://www.genspark.ai/api/files/s/2hJEIpFX", bestseller: true },
+            { name: "Chicken Tikka Pizza", description: "Onion, chicken tikka and tandoori sauce", price: "₹250.00", category: "pizza", type: "non-veg", image: "https://www.genspark.ai/api/files/s/2hJEIpFX", bestseller: true },
+            { name: "Aloo Tikki Burger", description: "Crispy aloo tikki with fresh veggies", price: "₹60.00", category: "burgers", type: "veg", image: "https://www.genspark.ai/api/files/s/s31jS8WE", bestseller: true },
+            { name: "Veg Red Sauce Pasta", description: "Pasta in tangy tomato sauce", price: "₹170.00", category: "pasta", type: "veg", image: "https://www.genspark.ai/api/files/s/Vza1GYZj", bestseller: true },
+            { name: "Garlic Bread", description: "Soft and freshly cooked", price: "₹100.00", category: "snacks", type: "veg", image: "https://www.genspark.ai/api/files/s/V5MzkRSp", bestseller: true },
+            { name: "Chocolate Shake", description: "Rich chocolate shake", price: "₹100.00", category: "beverages", type: "veg", image: "https://www.genspark.ai/api/files/s/V5MzkRSp", bestseller: true }
+        ];
+
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const menuGrid = document.getElementById('menuGrid');
+        const menuSearch = document.getElementById('menuSearch');
+        const categoryButtons = document.querySelectorAll('.category-btn');
+
+        // Sticky Nav
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 100);
+        });
+
+        // Hamburger Toggle
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Render Menu
+        function renderMenuItems(items) {
+            menuGrid.innerHTML = items.length ? items.map(item => `
+                <div class="menu-item">
+                    <img src="${item.image}" alt="${item.name}" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">${item.name}</h3>
+                            <div>
+                                ${item.bestseller ? '<span class="menu-item-badge badge-bestseller">★ Best Seller</span>' : ''}
+                                <span class="menu-item-badge ${item.type === 'veg' ? 'badge-veg' : 'badge-non-veg'}">
+                                    ${item.type === 'veg' ? '🥬 Veg' : '🍗 Non-Veg'}
+                                </span>
+                            </div>
+                        </div>
+                        <p class="menu-item-description">${item.description}</p>
+                        <div class="menu-item-footer">
+                            <span class="menu-item-price">${item.price}</span>
+                            <button class="btn-add" onclick="addToOrder('${item.name}', '${item.price}')">Add</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('') : '<p style="text-align:center; grid-column:1/-1;">No items found.</p>';
+        }
+
+        renderMenuItems(menuData);
+
+        // Filter Function
+        function filterMenu() {
+            const searchTerm = menuSearch.value.toLowerCase();
+            const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+            const filtered = menuData.filter(item => 
+                (activeCategory === 'all' || item.category === activeCategory) &&
+                (item.name.toLowerCase().includes(searchTerm) || item.description.toLowerCase().includes(searchTerm))
+            );
+            renderMenuItems(filtered);
+        }
+
+        categoryButtons.forEach(btn => btn.addEventListener('click', (e) => {
+            categoryButtons.forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            filterMenu();
+        }));
+
+        menuSearch.addEventListener('input', filterMenu);
+
+        function addToOrder(name, price) {
+            const msg = encodeURIComponent(`Hello, I want to order: ${name} (${price})`);
+            window.open(`https://wa.me/918700205502?text=${msg}`, '_blank');
+        }
+
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                lightbox.classList.add('active');
+                lightboxImg.src = item.querySelector('img').src;
+            });
+        });
+        document.querySelector('.lightbox-close').onclick = () => lightbox.classList.remove('active');
+    </script>
+</body>
+</html>
